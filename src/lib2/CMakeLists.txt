@@ -28,8 +28,13 @@ install(EXPORT ${TARGET_EXPORT} FILE ${TARGET_EXPORT}.cmake NAMESPACE ${TARGET}:
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
-    "${TARGET}Config.cmake.in" "${CMAKE_CURRENT_BINARY_DIR}/${TARGET}Config.cmake"
+    "${TARGET}Config.cmake.in" "${CMAKE_CURRENT_BINARY_DIR}/${TARGET_CMAKE_DIR}/${TARGET}Config.cmake"
     INSTALL_DESTINATION "${TARGET_CMAKE_DIR}")
+configure_package_config_file(
+    "${TARGET_CONFIG}Tree.cmake.in" "${CMAKE_CURRENT_BINARY_DIR}/${TARGET_CONFIG}.cmake"
+    INSTALL_DESTINATION "${TARGET_CMAKE_DIR}")
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${TARGET_CMAKE_DIR}/${TARGET_CONFIG}.cmake" DESTINATION ${TARGET_CMAKE_DIR})
 
 export(TARGETS ${TARGET} NAMESPACE ${TARGET}:: FILE ${TARGET_EXPORT}.cmake)
 export(PACKAGE ${TARGET})

@@ -1,6 +1,6 @@
 class Foo {
+public:
     Foo() = default;
     virtual ~Foo() = default;
-public:
     int foo() const;
 };

@@ -1,0 +1,8 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(lib1 REQUIRED)
+
+function(somelib_func)
+    message(STATUS "Me has to be called for code generation purpose")
+endfunction()

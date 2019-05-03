@@ -2,9 +2,9 @@
 
 class Bar : public Foo
 {
+public:
     Bar() = default;
     virtual ~Bar() = default;
 
-public:
     int bar() const;
 };
